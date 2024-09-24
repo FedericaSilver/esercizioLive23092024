@@ -1,19 +1,24 @@
 package com.example.esericizo23092024.esercizioLive.model;
 
+import com.example.esericizo23092024.esercizioLive.DTO.CustomerDTO;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Order {
     private Long id;
-    private Customer customer;
+    private CustomerDTO customer;
+    @NotNull
     private List<Product> productsList;
     private Integer quantity;
     private OrderStatusEnum orderStatus;
     private LocalDateTime orderDate;
 
 
-    public Order(Long id, Customer customer, List<Product> productsList, Integer quantity, OrderStatusEnum orderStatus, LocalDateTime orderDate) {
+    public Order(Long id, CustomerDTO customer, List<Product> productsList, Integer quantity, OrderStatusEnum orderStatus, LocalDateTime orderDate) {
         this.id = id;
         this.customer = customer;
         this.productsList = productsList;
@@ -23,6 +28,9 @@ public class Order {
     }
 
     public Order() {
+        this.orderDate = LocalDateTime.now();
+        this.productsList = new ArrayList<>();
+        this.orderStatus = OrderStatusEnum.CREATED;
     }
 
     public Long getId() {
@@ -33,11 +41,11 @@ public class Order {
         this.id = id;
     }
 
-    public Customer getCustomer() {
+    public CustomerDTO getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(CustomerDTO customer) {
         this.customer = customer;
     }
 
