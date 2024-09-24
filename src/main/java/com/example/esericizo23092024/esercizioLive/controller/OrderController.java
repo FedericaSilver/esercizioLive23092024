@@ -27,7 +27,6 @@ public class OrderController {
 
     @PostMapping("/create-order/{id}")
     public ResponseEntity<?> createNewOrder(@PathVariable("id") Long id, @Valid @RequestBody List<Long> productList) {
-        orderService.createNewOrder(id, productList);
         return ResponseEntity.ok(orderService.createNewOrder(id, productList));
     }
 

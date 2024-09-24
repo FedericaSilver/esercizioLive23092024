@@ -26,11 +26,13 @@ public class OrderService {
 
 
     public Order createNewOrder(Long id, List<Long> productId) {
+        //CustomerService
         Optional<Customer> customerFound = customerService.getCustomerMap().values().stream().filter(c -> c.getId().equals(id)).findFirst();
         Order order = new Order();
         if (productId.isEmpty()) {
-            return null;
+            return null; //eccezione
         } else {
+            //ProductService
             productId.stream()
                     .map(productService.productMap::get)
                     .filter(Objects::nonNull)

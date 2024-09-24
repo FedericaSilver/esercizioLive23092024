@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-@Getter
+
 @Service
 public class CustomerService {
 
@@ -32,5 +32,9 @@ public class CustomerService {
 
     public void deleteCustomer(Long id) {
         customerMap.remove(id);
+    }
+
+    public Map<Long, Customer> getCustomerMap() {
+        return customerMap;
     }
 }

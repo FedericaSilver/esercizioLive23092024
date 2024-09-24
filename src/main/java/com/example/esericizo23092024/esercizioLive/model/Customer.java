@@ -2,6 +2,7 @@ package com.example.esericizo23092024.esercizioLive.model;
 
 import com.example.esericizo23092024.esercizioLive.DTO.OrderDTO;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Customer {
     private String name;
     @NotNull
     private String email;
-    private List<OrderDTO> orderList;
+    private List<OrderDTO> orderList = new ArrayList<>();
 
     public Customer(Long id, String name, String email, List<OrderDTO> orderList) {
         this.id = id;
