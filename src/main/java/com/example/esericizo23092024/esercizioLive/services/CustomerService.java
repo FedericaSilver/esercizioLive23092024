@@ -1,17 +1,18 @@
 package com.example.esericizo23092024.esercizioLive.services;
 
 import com.example.esericizo23092024.esercizioLive.model.Customer;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-
+@Getter
 @Service
 public class CustomerService {
 
-    Map<Long, Customer> customerMap = new HashMap<>();
-    AtomicLong customerId = new AtomicLong();
+    private Map<Long, Customer> customerMap = new HashMap<>();
+    private AtomicLong customerId = new AtomicLong();
 
     public Customer createNewCustomer(Customer customer) {
         customer.setId(customerId.incrementAndGet());

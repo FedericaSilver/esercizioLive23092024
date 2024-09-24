@@ -26,7 +26,7 @@ public class OrderService {
 
 
     public Order createNewOrder(Long id, List<Long> productId) {
-        Optional<Customer> customerFound = customerService.customerMap.values().stream().filter(c -> c.getId().equals(id)).findFirst();
+        Optional<Customer> customerFound = customerService.getCustomerMap().values().stream().filter(c -> c.getId().equals(id)).findFirst();
         Order order = new Order();
         if (productId.isEmpty()) {
             return null;

@@ -10,13 +10,4 @@ public class EsercizioLiveApplication {
         SpringApplication.run(EsercizioLiveApplication.class, args);
     }
 
-	/*
-	Implementare un API rest con sistema di ordini ( mappe )
-	ottenere elenco ordini
-	aggiornare stato
-
-	ordine:
-	id
-
-	 */
 }
